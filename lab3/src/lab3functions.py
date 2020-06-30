@@ -10,6 +10,7 @@ def dh(d, theta, a, alpha):
     de Denavit-Hartenberg.
     Los valores d, theta, a, alpha son escalares.
     """
+    # Escriba aqui la matriz de transformacion homogenea en funcion de los valores de d, theta, a, alpha
     T = 0
     return T
     
@@ -22,7 +23,7 @@ def fkine_ur5(q):
     """
     # Longitudes (en metros)
 
-    # Matrices DH (completar)
+    # Matrices DH (completar), emplear la funcion dh con los parametros DH para cada articulacion
     T1 = 0
     T2 = 0
     T3 = 0
@@ -39,7 +40,7 @@ def jacobian_ur5(q, delta=0.0001):
     Jacobiano analitico para la posicion. Retorna una matriz de 3x6 y toma como
     entrada el vector de configuracion articular q=[q1, q2, q3, q4, q5, q6]
     """
-    # Alocacion de memoria
+    # Crear una matriz 3x6
     J = np.zeros((3,6))
     # Transformacion homogenea inicial (usando q)
 
@@ -50,7 +51,7 @@ def jacobian_ur5(q, delta=0.0001):
         dq = copy(q)
         # Incrementar la articulacion i-esima usando un delta
 
-        # Transformacion homogenea luego del incremento (q+dq)
+        # Transformacion homogenea luego del incremento (q+delta)
 
         # Aproximacion del Jacobiano de posicion usando diferencias finitas
 
