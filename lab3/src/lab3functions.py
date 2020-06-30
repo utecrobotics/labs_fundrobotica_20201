@@ -47,7 +47,7 @@ def jacobian_ur5(q, delta=0.0001):
     # Iteracion para la derivada de cada columna
     for i in xrange(6):
         # Copiar la configuracion articular inicial
-        dq = copy(q);
+        dq = copy(q)
         # Incrementar la articulacion i-esima usando un delta
 
         # Transformacion homogenea luego del incremento (q+dq)
@@ -59,7 +59,7 @@ def jacobian_ur5(q, delta=0.0001):
 
 def ikine_ur5(xdes, q0):
     """
-    Calcular la cinematica inversa de UR5 numericamente a partir de la configuración articular inicial de q0. 
+    Calcular la cinematica inversa de UR5 numericamente a partir de la configuracion articular inicial de q0. 
     """
     epsilon  = 0.001
     max_iter = 1000
