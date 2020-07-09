@@ -37,7 +37,6 @@ def fkine(q):
     T4 = 0
     T5 = 0
     T6 = 0
-    T7 = 0
     # Efector final con respecto a la base
     T = 0
     return T
