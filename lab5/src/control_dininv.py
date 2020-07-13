@@ -92,23 +92,7 @@ while not rospy.is_shutdown():
     # ----------------------------
     # Control dinamico (COMPLETAR)
     # ----------------------------
-    u = np.zeros(ndof)   # Reemplazar por la ley de control
 
-    g = np.zeros(ndof) # Para la gravedad
-    c = np.zeros(ndof) # Para el vector de Coriolis+centrifuga
-    M = np.zeros([ndof, ndof]) # Para la matriz de inercia
-    e = np.eye(6) # Vector identidad
-    rbdl.InverseDynamics(modelo, q, zeros, zeros, g)
-    rbdl.InverseDynamics(modelo, q, zeros, zeros, g)
-    rbdl.InverseDynamics(modelo, q, dq, zeros, c)
-    c = c - g
-    for i in range(6):
-        mi = np.zeros(6)
-        ei = e[i,:]
-        rbdl.InverseDynamics(modelo, q, zeros, ei, mi)
-        M[:,i] = mi - g
-
-    u = M.dot(ddqdes + Kd.dot(dqdes - dq) + Kp.dot(qdes - q)) + c + g
 
     # Simulacion del robot
     robot.send_command(u)
